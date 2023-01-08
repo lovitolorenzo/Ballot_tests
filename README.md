@@ -3,6 +3,7 @@
 ## Purpose
 
 - This project's target is to test as far as possible a simple Ballot.sol smart contract, **_focusing on tests side_**.
+- tests/Ballot.ts interacts with Ballot.sol's smart contract pressuring it and testing its robustness.
 
 ## Coding in VS Code
 
