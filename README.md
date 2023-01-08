@@ -1,6 +1,6 @@
 # Coding Ballot.sol
 
-## (Review) Coding in VS Code
+## Coding in VS Code
 
 - Syntax for typescript scripts
 - How the project operates
@@ -182,8 +182,3 @@ describe("Ballot", function () {
   });
 });
 </code></pre>
-
-# Homework
-
-- Create Github Issues with your questions about this lesson
-- Read the references
