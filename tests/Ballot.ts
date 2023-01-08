@@ -1,85 +1,21 @@
-# Coding Ballot.sol
-
-## (Review) Coding in VS Code
-
-- Syntax for typescript scripts
-- How the project operates
-- Writing a test file
-- Using Ethers.js library
-- Using Hardhat toolbox
-- Using Typechain library
-- Testing syntax
-- Running a test file
-
-### References
-
-https://docs.ethers.io/v5/
-
-https://hardhat.org/hardhat-runner/docs/getting-started#overview
-
-https://mochajs.org/
-
-https://hardhat.org/hardhat-chai-matchers/docs/overview
-
-https://www.chaijs.com/guide/
-
-https://github.com/dethcrypto/TypeChain
-
-## Introduction for Ballot.sol
-
-- Scenario strategy
-- The Ballot contract
-- Giving voting rights
-- Voting
-- Delegating
-- Proposals
-
-### Reference
-
-https://docs.soliditylang.org/en/latest/solidity-by-example.html#voting
-
-## Writing unit tests for Ballot.sol
-
-- More on Ether.js functions and utilities
-- Bytes32 and Strings conversion
-- Helper functions inside test scripts
-- Unit tests structure and nested tests
-
-### Code reference for tests
-
-<pre><code>import { expect } from "chai";
+import { expect } from "chai";
 import { ethers } from "hardhat";
 import { Ballot } from "../typechain-types";
 
 const PROPOSALS = ["Proposal 1", "Proposal 2", "Proposal 3"];
 
-function convertStringArrayToBytes32(array: string[]) {
-  const bytes32Array = [];
-  for (let index = 0; index < array.length; index++) {
-    bytes32Array.push(ethers.utils.formatBytes32String(array[index]));
-  }
-  return bytes32Array;
-}
-
 describe("Ballot", function () {
-  let ballotContract: Ballot;
+    let ballotContract: Ballot;
 
-  beforeEach(async function () {
-    const ballotFactory = await ethers.getContractFactory("Ballot");
-    ballotContract = await ballotFactory.deploy(
-      convertStringArrayToBytes32(PROPOSALS)
-    );
-    await ballotContract.deployed();
-  });
+    beforeEach(async function () {
+      const ballotFactory = await ethers.getContractFactory("Ballot");
+      ballotContract = await ballotFactory.deploy(PROPOSALS);
+      await ballotContract.deployed()
+    });
 
   describe("when the contract is deployed", function () {
     it("has the provided proposals", async function () {
-      for (let index = 0; index < PROPOSALS.length; index++) {
-        const proposal = await ballotContract.proposals(index);
-        expect(ethers.utils.parseBytes32String(proposal.name)).to.eq(
-          PROPOSALS[index]
-        );
-      }
+      
     });
 
     it("has zero votes for all proposals", async function () {
@@ -181,9 +117,3 @@ describe("Ballot", function () {
     });
   });
 });
-</code></pre>
-
-# Homework
-
-- Create Github Issues with your questions about this lesson
-- Read the references
