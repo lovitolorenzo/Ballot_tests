@@ -1,5 +1,9 @@
 # Coding Ballot.sol
 
+## Purpose
+
+- This project's target is to test as far as possible a simple Ballot.sol smart contract, **_focusing on tests side_**.
+
 ## Coding in VS Code
 
 - Syntax for typescript scripts
